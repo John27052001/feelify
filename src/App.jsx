@@ -45,6 +45,26 @@ const emotionVisuals = {
   },
 };
 
+// 💡 Enhancer for short emotion words
+function enrichInput(text) {
+  const lower = text.trim().toLowerCase();
+  const baseEmotions = {
+    happy: "I'm feeling happy and energized today.",
+    sad: "I'm feeling sad and emotionally low.",
+    angry: "I'm feeling frustrated and angry about something.",
+    fear: "I'm nervous and feeling uncertain.",
+    disgust: "I'm uncomfortable and turned off by something.",
+    love: "I'm feeling warm, close, and affectionate.",
+    excitement: "I'm thrilled and full of energy!",
+    surprise: "I'm amazed and didn't see this coming.",
+    calm: "I'm relaxed and mentally clear.",
+    tired: "I'm emotionally and physically drained.",
+    neutral: "I feel okay, not too high or low.",
+  };
+
+  return baseEmotions[lower] || text;
+}
+
 function App() {
   const [mood, setMood] = useState('');
   const [emotion, setEmotion] = useState('');
@@ -77,9 +97,10 @@ function App() {
       setLoading(true);
       setShowMusic(false);
       try {
-        const result = await detectEmotion(mood);
+        const enriched = enrichInput(mood);
+        const result = await detectEmotion(enriched);
         setEmotion(result);
-        setTimeout(() => setShowMusic(true), 6000); // Wait 6s for breathing
+        setTimeout(() => setShowMusic(true), 6000);
       } catch (error) {
         console.error('Emotion detection error:', error.message);
         setEmotion('neutral');
