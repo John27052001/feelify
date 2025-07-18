@@ -1,12 +1,57 @@
-# React + Vite
+# 🎵 Feelify – AI-Powered Emotion Music Companion
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Feelify** is a beautifully designed, AI-powered web app that detects how you're feeling and plays music to match your mood.  
+It brings together emotional intelligence, music, and calming visuals to help you **breathe, reflect, and feel better**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 💡 Features
 
-## Expanding the ESLint configuration
+- 🧠 Emotion detection from your typed mood using Hugging Face AI
+- 🌈 Breathing animation with color based on emotion
+- 💬 Motivational quote that fits your current state
+- 🎧 Music recommendations matched to your emotion
+- 🎥 Smooth transitions, calming animations, Vanta.js wave background
+- 🔒 Safe & secure — secrets kept in `.env`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🖼️ Demo
+
+> 🔗 [Live Demo (Vercel)](https://your-vercel-link.vercel.app)
+
+---
+
+## 🛠 Tech Stack
+
+- **Frontend**: React, Framer Motion, Vite, CSS
+- **Emotion Detection**: Hugging Face Inference API  
+- **Animations**: Framer Motion + Vanta.js (WAVES)
+- **YouTube Music Embeds** for mood-based soundscapes
+
+---
+
+## 🧪 How It Works
+
+1. You type how you're feeling.
+2. The app sends your input to a Hugging Face emotion classification model.
+3. Based on your emotion:
+   - A **custom quote** is shown
+   - A **colorful breathing circle** guides your calm
+   - A **curated playlist** plays after a short reflection
+
+---
+
+## 🔐 Environment Variables
+
+Create a `.env` file in the root:
+
+```env
+VITE_HUGGINGFACE_API_KEY=your_huggingface_token_here
+
+## 📦 Installation
+
+git clone https://github.com/John27052001/feelify.git
+cd feelify
+npm install
+npm run dev
