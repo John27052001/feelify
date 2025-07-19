@@ -1,7 +1,8 @@
+console.log("🚀 Using token:", import.meta.env.VITE_HUGGINGFACE_API_KEY);
 export async function detectEmotion(text) {
     const response = await fetch(
-      'https://api-inference.huggingface.co/models/arpanghoshal/EmoRoBERTa',
-      {
+        'https://api-inference.huggingface.co/models/bhadresh-savani/distilbert-base-uncased-emotion',
+        {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${import.meta.env.VITE_HUGGINGFACE_API_KEY}`,
@@ -12,17 +13,15 @@ export async function detectEmotion(text) {
     );
   
     const result = await response.json();
-    console.log('🔍 API raw result:', result); // 👈 log the exact response
+    console.log('🔍 Hugging Face result:', result);
   
-    // Handle known good response format
-    if (Array.isArray(result)) {
-      const top = result[0].reduce((a, b) => (a.score > b.score ? a : b));
-      return top.label.toLowerCase();
+    if (result && result.label) {
+      return result.label.toLowerCase(); // ✅ works for arpanghoshal/EmoRoBERTa
     }
   
-    // Handle unexpected format (object)
-    if (result && result.label) {
-      return result.label.toLowerCase();
+    if (Array.isArray(result) && result.length > 0 && Array.isArray(result[0])) {
+      const top = result[0].reduce((a, b) => (a.score > b.score ? a : b));
+      return top.label.toLowerCase();
     }
   
     return 'neutral';
