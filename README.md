@@ -47,7 +47,7 @@ It brings together emotional intelligence, music, and calming visuals to help yo
 Create a `.env` file in the root:
 
 ```env
-VITE_HUGGINGFACE_API_KEY=your_huggingface_token_here
+VITE_HUGGINGFACE_API_KEY=huggingface_token_here
 
 ## 📦 Installation
 
