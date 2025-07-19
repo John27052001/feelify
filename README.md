@@ -18,7 +18,7 @@ It brings together emotional intelligence, music, and calming visuals to help yo
 
 ## 🖼️ Demo
 
-> 🔗 [Live Demo (Vercel)]([https://your-vercel-link.vercel.app](https://feelify-lwqd.vercel.app/))
+> 🔗 [Live Demo (Vercel)]([https://feelify-lwqd.vercel.app/)
 
 ---
 
